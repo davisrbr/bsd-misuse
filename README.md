@@ -2,7 +2,7 @@
 
 <img src="images/decomp_schematic.png" alt="Decomposition Attack Schematic" width="800">
 
-Code for the defenses in our paper, "Benchmarking Misuse Mitigation Against Covert Adversaries" (https://www.arxiv.org/abs/2506.06414)
+Code for the defenses in our paper, [Benchmarking Misuse Mitigation Against Covert Adversaries](https://www.arxiv.org/abs/2506.06414).
 
 ## Overview
 
@@ -18,13 +18,8 @@ The BSD dataset is available through HuggingFace at: **https://huggingface.co/da
 
 **Access Policy**: The dataset has restricted access to enable legitimate safety research while preventing potential harmful applications. To access the dataset:
 
-1. Visit the HuggingFace dataset page
-2. Submit a request through the provided form. We will follow-up with an email.
-
-The dataset contains questions that are:
-- Too difficult for many open-weights models to answer
-- Consistently refused by frontier models
-- Answerable by "helpful-only" models
+1. Visit our HuggingFace dataset page
+2. Submit a request through the provided form. We will follow-up with an email askiing about your usecase.
 
 ## Defense Implementations
 
@@ -47,13 +42,3 @@ The `defense/` folder is organized into two main categories: `prompt_wise/` cont
   - [`buffer_decomp.py`](defense/stateful/buffer_methods/buffer_decomp.py) and [`buffer_defense.py`](defense/stateful/buffer_methods/buffer_defense.py) - Buffer defenses
   - [`buffer_defense_together.py`](defense/stateful/buffer_methods/buffer_defense_together.py) - Buffer defense strategy using Llama 70B with the Together API
   - [`random_sample.py`](defense/stateful/buffer_methods/random_sample.py) - Stateful evaluation through sampling across multiple runs
-
-## Release Policy
-
-This controlled release approach follows the principle of enabling legitimate safety research while preventing potential misuse. The combination of:
-- Restricted dataset access through a review process
-- Open defense implementations  
-- Clear research guidelines
-
-Allows researchers to develop and evaluate safety mechanisms while maintaining responsible disclosure practices.
-
