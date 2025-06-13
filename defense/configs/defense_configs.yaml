@@ -1,0 +1,43 @@
+# Defense Configuration Template
+# This file serves as a template for organizing defense-related configurations
+
+# Model Training Configuration
+training:
+  model_name: "meta-llama/Llama-Guard-3-8B"
+  batch_size: 16
+  learning_rate: 2e-5
+  max_length: 256
+  epochs: 1
+  output_dir: "./finetuned_models"
+
+# Inference Configuration
+inference:
+  batch_size: 16
+  max_length: 4096
+  temperature: 0.0
+  max_tokens: 200
+
+# Buffer Defense Configuration
+buffer_methods:
+  buffer_size: 30
+  sampling_strategy: "random"
+  threshold: 0.5
+
+# Evaluation Configuration
+evaluation:
+  test_size: 0.2
+  metrics: ["accuracy", "precision", "recall", "f1", "auc"]
+  save_plots: true
+
+# Dataset Configuration
+dataset:
+  source: "https://huggingface.co/datasets/BrachioLab/BSD"
+  safe_label: 0
+  unsafe_label: 1
+
+# Paths (update these to match your environment)
+paths:
+  data_dir: "./data"
+  model_dir: "./models"
+  output_dir: "./outputs"
+  logs_dir: "./logs"

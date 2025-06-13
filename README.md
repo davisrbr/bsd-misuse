@@ -1,2 +1,57 @@
 # Benchmarking Misuse Mitigation Against Covert Adversaries
-Code for the attacks in our paper, "Benchmarking Misuse Mitigation Against Covert Adversaries"
+
+Code for the attacks and defenses in our paper, "Benchmarking Misuse Mitigation Against Covert Adversaries"
+
+## Overview
+
+This repository contains implementations of various defense mechanisms against covert adversarial attacks on language models. The defenses are designed to detect and mitigate harmful requests while maintaining model utility for legitimate use cases.
+
+## Dataset
+
+The defenses in this repository are designed to work with the **Benchmarks for Stateful Defenses (BSD)** dataset, which contains challenging questions that test "misuse uplift" and "detectability" of harmful request patterns.
+
+### Accessing the BSD Dataset
+
+The BSD dataset is available through HuggingFace at: **https://huggingface.co/datasets/BrachioLab/BSD**
+
+**Access Policy**: The dataset has restricted access to enable legitimate safety research while preventing potential harmful applications. To access the dataset:
+
+1. Visit the HuggingFace dataset page
+2. Submit a request through the provided form. We will follow-up with an email.
+
+The dataset contains questions that are:
+- Too difficult for many open-weights models to answer
+- Consistently refused by frontier models
+- Answerable by "helpful-only" models
+
+## Defense Implementations
+
+The `defense/` folder is organized into two main categories: `prompt_wise/` contains defenses that operate on individual queries without maintaining state, while `stateful/` contains defenses that track information across multiple queries to detect covert attacks. 
+
+### Prompt-wise Defenses (`prompt_wise/`)
+
+- **`modeling/`** -  Inference, adversarial training, and evaluating the defenses on the decomposition dataset. 
+  - `training/` - Adversarial finetuning against PAIR/decomposition attacks
+    - [`finetune_8b_binary.py`](defense/prompt_wise/modeling/training/finetune_8b_binary.py) - Adversarial training for decomposition attacks
+    - [`finetune_pair.py`](defense/prompt_wise/modeling/training/finetune_pair.py) - Adversarial training against PAIR jailbreaks
+  - `inference/` - Prediction and inference utilities
+    - [`predict.py`](defense/prompt_wise/modeling/inference/predict.py) - Basic prediction utilities
+    - [`predict_pair.py`](defense/prompt_wise/modeling/inference/predict_pair.py) - Evaluating detection defenses on PAIR attacks
+    - [`pointwise_defense.py`](defense/prompt_wise/modeling/inference/pointwise_defense.py) - Evaluating pointwise detection defenses for decomposition
+
+### Stateful Defenses (`stateful/`)
+
+- **`buffer_methods/`** - Buffer-based stateful defense mechanisms
+  - [`buffer_decomp.py`](defense/stateful/buffer_methods/buffer_decomp.py) and [`buffer_defense.py`](defense/stateful/buffer_methods/buffer_defense.py) - Buffer defenses
+  - [`buffer_defense_together.py`](defense/stateful/buffer_methods/buffer_defense_together.py) - Buffer defense strategy using Llama 70B with the Together API
+  - [`random_sample.py`](defense/stateful/buffer_methods/random_sample.py) - Stateful evaluation through sampling across multiple runs
+
+## Release Policy
+
+This controlled release approach follows the principle of enabling legitimate safety research while preventing potential misuse. The combination of:
+- Restricted dataset access through a review process
+- Open defense implementations  
+- Clear research guidelines
+
+Allows researchers to develop and evaluate safety mechanisms while maintaining responsible disclosure practices.
+
