@@ -6,7 +6,7 @@ Code for the defenses in our paper, [Benchmarking Misuse Mitigation Against Cove
 
 ## Overview
 
-This repository contains implementations of various defense mechanisms against covert adversarial attacks on language models. The defenses are designed to detect and mitigate harmful requests while maintaining model utility for legitimate use cases.
+This repository contains implementations of various defense mechanisms against covert adversarial attacks on language models. The defenses are designed to detect and mitigate harmful requests that are *potentially distributed across multiple users or user sessions*. Please [see our paper](https://www.arxiv.org/abs/2506.06414) for details.
 
 ## Dataset
 
