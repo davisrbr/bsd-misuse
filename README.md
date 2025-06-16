@@ -21,7 +21,19 @@ The BSD dataset is available through HuggingFace at: **https://huggingface.co/da
 1. Visit our HuggingFace dataset page
 2. Submit a request through the provided form. We will follow-up with an email asking about your usecase.
 
-## Defense Implementations
+## Attacks
+
+All attack implementations are available in the `JB_attacks/` folder. See the [JB_attacks README](JB_attacks/README.md) for usage instructions.
+
+- **Decomposition Attacks** - The primary focus of our work is on decomposition attacks, where harmful requests are broken into seemingly benign sub-questions distributed across multiple interactions or users. This covert approach makes detection significantly more challenging for traditional safety mechanisms.
+
+- **Comparison Methods** - To evaluate defense effectiveness, we compare against several established jailbreaking methods:
+    - PAIR
+    - Adaptive Attack
+    - Adversarial Reasoning
+    - Crescendo
+
+## Defenses
 
 The `defense/` folder is organized into two main categories: `prompt_wise/` contains defenses that operate on individual queries without maintaining state, while `stateful/` contains defenses that track information across multiple queries to detect covert attacks. 
 
