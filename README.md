@@ -19,7 +19,7 @@ The BSD dataset is available through HuggingFace at: **https://huggingface.co/da
 **Access Policy**: The dataset has restricted access to enable legitimate safety research while preventing potential harmful applications. To access the dataset:
 
 1. Visit our HuggingFace dataset page
-2. Submit a request through the provided form. We will follow-up with an email askiing about your usecase.
+2. Submit a request through the provided form. We will follow-up with an email asking about your usecase.
 
 ## Defense Implementations
 
