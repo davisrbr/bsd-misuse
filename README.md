@@ -2,7 +2,7 @@
 
 <img src="images/decomp_schematic.png" alt="Decomposition Attack Schematic" width="800">
 
-Code for the defenses in our paper, [Benchmarking Misuse Mitigation Against Covert Adversaries](https://www.arxiv.org/abs/2506.06414).
+Code for the attacks and defenses in our paper, [Benchmarking Misuse Mitigation Against Covert Adversaries](https://www.arxiv.org/abs/2506.06414).
 
 ## Overview
 
